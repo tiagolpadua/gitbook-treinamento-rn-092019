@@ -1,114 +1,251 @@
-# Criando um Belo Hello World
+# Iniciando o Projeto
 
-Primeiramente vamos instalar o `expo-cli` globalmente e iniciar um projeto de exemplo, para isso, abra o prompt de comandos (cmd) e execute os comandos a seguir:
-
-```bash
-C:\Users\nome> npm install -g expo-cli
-...
-C:\Users\nome> expo --version
-2.2.5
-C:\Users\nome>mkdir projects
-C:\Users\nome> cd projects
-C:\Users\nome\projects> expo init HelloWorld
-? Choose a template: blank
-[19:30:41] Extracting project files...
-[19:31:48] Customizing project...
-
-Your project is ready at C:\Users\nome\projects\HelloWorld
-To get started, you can type:
-
-  cd HelloWorld
-  expo start
-
-C:\Users\nome\projects> cd HelloWorld
-```
-
-Opcionalmente, ao invés de utilizar o próprio celular, pode ser utilizado o emulador do Android.
-
-Para isso, abra o AndroidStudio e clique em:
-
-- Tools -> AVD Manager -> Actions | Play
-
-## Ativando a depuração USB - Somente para celular Android
-
-- Primeiro, abra "Configurações"
-- Role a tela até encontrar "Sistema"
-- Role a tela até encontrar "Sobre o dispositivo"
-- Role para baixo novamente e encontre a entrada com o número da versão ou compilação (build number).
-- Comece a tocar na seção "Número da versçai", e agora o Android exibirá uma mensagem informando que, em x cliques, você se tornará um desenvolvedor. Continue tocando até que o processo esteja concluído.
-- Volte até a tela "Sistema"
-- Role a tela até encontrar "Programador"
-- Role a tela até encontrar "Depuração USB" e deixe a opção ativa
-
-<!-- TODO: comandos adb device -->
-
-## Ajustando o Hello World
-
-Abra o VS Code e clique em: File -> Open Folder e abra a pasta do projeto criado.
-
-Ative o terminal do VS Code: Terminal -> New Terminal
-
-Agora, vamos executar a aplicação recém criada:
+Podemos inicializar e executar nosso projeto com muita facilidade utilizando o `react-native-cli`:
 
 ```bash
-PS C:\Users\nome\projects\HelloWorld> expo start
-[18:09:08] Starting project at C:\Users\nome\projects\HelloWorld
-[18:09:09] Expo DevTools is running at http://localhost:19002
-[18:09:09] Opening DevTools in the browser... (press shift-d to disable)
-[18:09:20] Starting Metro Bundler on port 19001.
-[18:09:26] Successfully ran `adb reverse`. Localhost URLs should work on the connected Android device.
-[18:09:27] Tunnel ready.
-
-  exp://169.254.186.144:19000
-
-  To run the app with live reloading, choose one of:
-  • Sign in as @fulano in Expo Client on Android or iOS. Your projects will automatically appear in the "Projects" tab.
-  • Scan the QR code above with the Expo app (Android) or the Camera app (iOS).
-  • Press a for Android emulator.
-  • Press e to send a link to your phone with email/SMS.
-
-Press ? to show a list of all available commands.
-Logs for your project will appear below. Press Ctrl+C to exit.
+> react-native init CoZooMob
 ```
 
-Deve ser aberta uma página da Web com a interface do Expo, escolha a opção "Local", use a aplicação expo para escanear o QR Code que é exibido.
+Abra a pasta do projeto no VS Code, em seguida ative o terminal: `Terminal -> New Termial`
 
-Agora, vamos customizar a tela da aplicação que está sendo exibida:
+Divida o terminal em dois: Split Terminals
+
+Em um terminal entre com o comando:
+
+```bash
+> react-native start
+```
+
+E no outro:
+
+```bash
+> react-native run-android
+```
+
+Obs.: O comando `react-native run-android` deve ser executado após o emulador do Android estar em execução.
+
+A aplicação deverá ser executada no emulador conforme o print abaixo:
+
+![](assets/print-hello.png)
+
+## Conhecendo a estrutura básica de um projeto React Native
+
+- `__tests__`: Pasta de testes do projeto;
+- `android`: Pasta do projeto nativo Android;
+- `ios`: Pasta do projeto nativo iOS;
+- `node_modules`: Pasta dependências JavaScript;
+- `.buckconfig`: Configuração do sistema de build Buck;
+- `.eslintrc.js`: Configuração do linter de código;
+- `.flowconfig`: Configuração do checador de tipagem estática Flow;
+- `.gitattributes`: Configurações do git;
+- `.gitignore`: Configuração de arquivos ignorados pelo git;
+- `.prettierrc.js`: Configuração do formatador de código Prettier;
+- `.watchmanconfig`: Configuração da ferramenta de monitoração Watchman;
+- `App.js`: A primeira tela (e componente) de nosso aplicativo!
+- `app.json`: Algumas propriedades de nosso aplicativo;
+- `babel.config.js`: Configuração do transpilador babel;
+- `index.js`: Ponto de partida inicial de nossa aplicação;
+- `metro.config.js`: Configuração do bundler metro;
+- `package-lock.json`: Descritor da árvore de dependências completa do projeto;
+- `package.json`: Descritor do projeto NPM;
+
+## Ajustando a tela inicial
+
+Vamos alterar o arquivo `App.js` para que tenha o seguinte conteúdo:
+
+- `App.js`
 
 ```jsx
-// App.js
-import * as React from "react";
-import { Text, View, StyleSheet } from "react-native";
-import { Constants } from "expo";
+import React, {Component} from 'react';
+import {Text, View} from 'react-native';
 
-export default class App extends React.Component {
+export default class App extends Component {
   render() {
     return (
-      <View style={styles.container}>
-        <Text style={styles.paragraph}>Olá Mundo!</Text>
+      <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
+        <Text>Controle de Zoológico Mobile!</Text>
+      </View>
+    );
+  }
+}
+```
+
+Obs.: Caso ocorra um erro do tipo:
+
+```
+Error: ESLint configuration in .eslintrc.js » @react-native-community/eslint-config is invalid:
+	- Property "overrides" is the wrong type (expected array but got `{"files":["**/__tests__/**/*.js","**/*.spec.js","**/*.test.js"],"env":{"jest":true,"jest/globals":true}}`).
+```
+
+Isto ocorre devido a uma incompatibilidade entre a versão mais nova do ESLint e a configuração do react (https://github.com/facebook/create-react-app/issues/7284), e pode ser resolvida através do _downgrade_ da versão do ESLint do projeto, alterando a seguinte linha no `package.json`:
+
+```json
+...
+  "devDependencies": {
+    "eslint": "5.16.0"
+  }
+...
+```
+
+Em seguida, devemos remover e reinstalar as dependências:
+
+```bash
+> rm -rf node_modules
+> npm install
+```
+
+## Auto-formatação do Código
+
+Para facilitar com que nosso time utilize o mesmo padrão de codificação, iremos configurar para que o VS Code formate automaticamente nosso código: File -> Preferences -> Settings -> User -> Format on Save: True
+
+É necessário que os plugins ESLint e Prettier estejam instalados no VS Code.
+
+Agora, sempre que algum arquivo for salvo, ele será automaticamente formatado.
+
+## Conhecendo melhor o VS Code
+
+![](assets/print-vscode.png)
+
+## Conhecendo as Ferramentas de Desenvolvedor
+
+![](assets/print-dev-tools.png)
+
+## ES2015 (ES6) e JSX
+
+Dois pontos importantes de serem notados é o uso de ES2015 e JSX. O ES2015 nos permite utilizar diversos recursos modernos da linguagem JavaScript que veremos no decorrer do treinamento. Já o JSX é uma extensão do JS que nos permite descrever elementos de forma similar ao XML diretamente no código de nossa aplicação, tornando a escrita de compoentes muito mais simples.
+
+## Componentes
+
+Componentes são a estrutura básica do React, basicamente tudo que vemos em tela são Componentes ou uma composição de diversos componentes. Criaremos muitos componentes no decorrer de nosso treinamento.
+
+Um componente é uma classe simples, único método obrigatório de um componente é a função `render`, que define a exibição do mesmo.
+
+## Melhorando a organização do código
+
+Uma boa prática é já focar desde o começo de nosso projeto em sua organização. Para isso vamos mover nosso componente para uma subpasta que criaremos `src/components/App.js`.
+
+## Exibindo algo mais interessante
+
+Vamos começar exibindo os detalhes de um animal:
+
+- `App.js`
+
+```jsx
+import React, {Component} from 'react';
+import {Image, Text, View, Dimensions} from 'react-native';
+
+export default class App extends Component {
+  render() {
+    const {width} = Dimensions.get('screen');
+
+    return (
+      <View>
+        <Text style={{fontSize: 16}}>Leão</Text>
+        <Image
+          source={{
+            uri:
+              'https://upload.wikimedia.org/wikipedia/commons/4/40/Just_one_lion.jpg',
+          }}
+          style={{width, height: width}}
+        />
+      </View>
+    );
+  }
+}
+```
+
+Repare na sintaxe de `const {width} = Dimensions.get('screen')`, esta é a chamada atribuição via desestruturação. A sintaxe de atribuição via desestruturação (destructuring assignment) é uma expressão JavaScript que possibilita extrair dados de arrays ou objetos em variáveis distintas (https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Operators/Atribuicao_via_desestruturacao)
+
+Pensando na melhoria de código, seria mais eficiente que tivéssemos tanto as propriedades do CSS quanto os dados dos animais separados em variáveis:
+
+- `App.js`
+
+```jsx
+const {width} = Dimensions.get('screen');
+
+export default class App extends Component {
+  render() {
+    const animal = {
+      nome: 'Leão',
+      urlImagem:
+        'https://upload.wikimedia.org/wikipedia/commons/4/40/Just_one_lion.jpg',
+    };
+
+    return (
+      <View>
+        <Text style={styles.nomeAnimal}>{animal.nome}</Text>
+        <Image
+          source={{
+            uri: animal.urlImagem,
+          }}
+          style={styles.imagemAnimal}
+        />
       </View>
     );
   }
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: "center",
-    paddingTop: Constants.statusBarHeight,
-    backgroundColor: "#ecf0f1",
-    padding: 8
-  },
-  paragraph: {
-    margin: 24,
-    fontSize: 18,
-    fontWeight: "bold",
-    textAlign: "center"
-  }
+  nomeAnimal: {fontSize: 16},
+  imagemAnimal: {width, height: width},
 });
 ```
 
-## Conhecendo o React Native
+## Vários Animais
+
+Agora que já temos um animal sendo exibido, nosso próximo passo é passar a exibir uma lista de animais, para isso, utilizaremos um array de animais e a função `map`:
+
+- `App.js`
+
+```jsx
+export default class App extends Component {
+  render() {
+    const animais = [
+      {
+        nome: 'Leão',
+        urlImagem:
+          'https://upload.wikimedia.org/wikipedia/commons/4/40/Just_one_lion.jpg',
+      },
+      {
+        nome: 'Girafa',
+        urlImagem:
+          'https://upload.wikimedia.org/wikipedia/commons/9/97/Namibie_Etosha_Girafe_02.jpg',
+      },
+      {
+        nome: 'Gato',
+        urlImagem:
+          'https://upload.wikimedia.org/wikipedia/commons/b/b2/WhiteCat.jpg',
+      },
+    ];
+
+    return (
+      <View>
+        {animais.map(animal => (
+          <View>
+            <Text style={styles.nomeAnimal}>{animal.nome}</Text>
+            <Image
+              source={{
+                uri: animal.urlImagem,
+              }}
+              style={styles.imagemAnimal}
+            />
+          </View>
+        ))}
+      </View>
+    );
+  }
+}
+```
+
+Alguns pontos merecem destaque aqui:
+
+- Utilizamos o método `map` do objeto array do JavaScript para iterar sobre a lista de animais, perceba que no JSX não há uma sintaxe especial de template, utilizamos as construções do próprio JavaScript;
+
+- É necessário envolver a resposta do `map` em um elemento raiz `<View>`, tente remover este elemento e veja o que ocorre;
+
+Mas ainda faltam acertar alguns pontos, pois é exibido um _warning_ referente a _unique key prop_. Para este problema, basta que
+
+---
 
 ### Criando componentes
 
@@ -138,8 +275,8 @@ Vamos criar uma pasta chamada components e dentro dela um arquivo chamado Mensag
 
 ```jsx
 // components/Mensagem.js
-import * as React from "react";
-import { StyleSheet, Text } from "react-native";
+import * as React from 'react';
+import {StyleSheet, Text} from 'react-native';
 
 export class Mensagem extends React.Component {
   render() {
@@ -155,9 +292,9 @@ const styles = StyleSheet.create({
   paragraph: {
     margin: 24,
     fontSize: 18,
-    fontWeight: "bold",
-    textAlign: "center"
-  }
+    fontWeight: 'bold',
+    textAlign: 'center',
+  },
 });
 ```
 
@@ -168,7 +305,7 @@ Agora, no arquivo App.js podemos importar o componente que foi criado anteriorme
 // Código anterior omitido
 
 // Novidade aqui!
-import { Mensagem } from "./components/Mensagem";
+import {Mensagem} from './components/Mensagem';
 
 export default class App extends React.Component {
   render() {
@@ -247,11 +384,11 @@ export default class App extends React.Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: "center",
+    justifyContent: 'center',
     paddingTop: Constants.statusBarHeight,
-    backgroundColor: "#ecf0f1",
-    padding: 8
-  }
+    backgroundColor: '#ecf0f1',
+    padding: 8,
+  },
 });
 // Código posterior omitido
 ```
@@ -268,19 +405,19 @@ Vamos fazer um simples contator de cliques em nossa aplicação:
 // App.js
 // Código anterior omitido
 // Novidade aqui!
-import { Button, StyleSheet, View } from "react-native";
+import {Button, StyleSheet, View} from 'react-native';
 
 export default class App extends React.Component {
   // Novidade aqui!
   constructor(props) {
     super(props);
-    this.state = { clicks: 0 };
+    this.state = {clicks: 0};
   }
 
   // Novidade aqui!
   handleClick() {
     this.setState({
-      clicks: this.state.clicks + 1
+      clicks: this.state.clicks + 1,
     });
   }
 
@@ -307,7 +444,7 @@ Outra forma de fazer o bind:
 export default class App extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { clicks: 0 };
+    this.state = {clicks: 0};
 
     // Novidade aqui!
     this.handleClick = this.handleClick.bind(this);
@@ -315,7 +452,7 @@ export default class App extends React.Component {
 
   handleClick() {
     this.setState({
-      clicks: this.state.clicks + 1
+      clicks: this.state.clicks + 1,
     });
   }
 
@@ -342,13 +479,13 @@ E mais uma forma de fazer o bind:
 export default class App extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { clicks: 0 };
+    this.state = {clicks: 0};
   }
 
   // Novidade aqui!
   handleClick = () => {
     this.setState({
-      clicks: this.state.clicks + 1
+      clicks: this.state.clicks + 1,
     });
   };
 
@@ -374,12 +511,12 @@ setState também possui uma segunda forma onde é passada uma função como argu
 export default class App extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { clicks: 0 };
+    this.state = {clicks: 0};
   }
 
   // Novidade aqui!
   handleClick = () => {
-    this.setState(prevState => ({ clicks: prevState.clicks + 1 }));
+    this.setState(prevState => ({clicks: prevState.clicks + 1}));
   };
 
   render() {
@@ -485,7 +622,7 @@ export default class App extends React.Component {
   }
 
   render() {
-    const nome = "José";
+    const nome = 'José';
 
     return (
       <View style={styles.container}>
@@ -509,12 +646,12 @@ export default class App extends React.Component {
     super(props);
   }
 
-  formatMessage(message = "") {
+  formatMessage(message = '') {
     return message.toUpperCase();
   }
 
   render() {
-    const nome = "José";
+    const nome = 'José';
 
     return (
       <View style={styles.container}>
@@ -540,7 +677,7 @@ export default class App extends React.Component {
     super(props);
   }
 
-  formatMessage(message = "") {
+  formatMessage(message = '') {
     let el;
     if (message.length > 2) {
       el = <Text>{message.toUpperCase()}</Text>;
@@ -551,8 +688,8 @@ export default class App extends React.Component {
   }
 
   render() {
-    const nome = "José";
-    const saudacao = "oi";
+    const nome = 'José';
+    const saudacao = 'oi';
 
     return (
       <View style={styles.container}>
@@ -599,7 +736,7 @@ export default class App extends React.Component {
   }
 
   render() {
-    const minhaMsg = "Olá José";
+    const minhaMsg = 'Olá José';
     return (
       <View style={styles.container}>
         <Mensagem texto={minhaMsg} />
@@ -627,7 +764,7 @@ export default class App extends React.Component {
   }
 
   render() {
-    const minhaMsg = "Olá José";
+    const minhaMsg = 'Olá José';
     return (
       <View style={styles.container}>
         <MensagemSimples texto={minhaMsg} />

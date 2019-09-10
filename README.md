@@ -16,15 +16,11 @@ Espera-se que o aluno possua prévio conhecimento nos tópicos abaixo para que p
 
 ## Visão geral do treinamento
 
-- *React*: Uma biblioteca JavaScript para construir interfaces com o usuário;
-<!--
-- *Expo*: Expo é um conjunto de ferramentas gratuito e de código aberto criado em torno do React Native para ajudá-lo a criar projetos iOS e Android nativos usando JavaScript e React;
--->
-- Create React Native Apps: Permite a criação de aplicativos React Native em qualquer sistema operacional;
-- React Navigation: Roteamento e navegação para aplicativos React Native;
-- Redux: Contêiner de estado previsível para aplicativos JavaScript;
-- Redux Thunk: Permite que se escreva criadores de ações que retornam uma função ao invés de uma ação;
-- Redux Form: A melhor maneira de gerenciar estado de formulários no Redux;
-- Superagent: O SuperAgent é uma pequena biblioteca de solicitação HTTP progressiva do lado do cliente e um módulo Node.js com a mesma API, com muitos recursos de cliente HTTP de alto nível;
-- React DevTools: Permite inspecionar a hierarquia do componente React, incluindo o componente props e state;
-- Reactotron: Um aplicativo macOS, Windows e Linux para inspecionar seus aplicativos React JS e React Native;
+- _React_: Uma biblioteca JavaScript para construir interfaces com o usuário;
+- _React Navigation_: Roteamento e navegação para aplicativos React Native;
+- _Redux_: Contêiner de estado previsível para aplicativos JavaScript;
+- _Redux Thunk_: Permite que se escreva criadores de ações que retornam uma função ao invés de uma ação;
+- _Redux Form_: A melhor maneira de gerenciar estado de formulários no Redux;
+- _Superagent_: O SuperAgent é uma pequena biblioteca de solicitação HTTP progressiva do lado do cliente e um módulo Node.js com a mesma API, com muitos recursos de cliente HTTP de alto nível;
+- _React DevTools_: Permite inspecionar a hierarquia do componente React, incluindo o componente props e state;
+- _Reactotron_: Um aplicativo macOS, Windows e Linux para inspecionar seus aplicativos React JS e React Native;

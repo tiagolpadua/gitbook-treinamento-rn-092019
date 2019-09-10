@@ -1,0 +1,23 @@
+{
+  "name": "gitbook-treinamento-rn-092019",
+  "version": "1.0.0",
+  "description": "O framework ReactNative é a última palavra em desenvolvimento multiplataforma de aplicativos mobile. Dentre os tópicos do treinamento, abordaremos os conceitos fundamentais do framework, além de ferramentas e bibliotecas que auxiliam o dia a dia de um desenvolvedor ReactNative. Para você profissional de TI que gosta de se manter atualizado ao que há de mais moderno em termos de desenvolvimento mobile, este treinamento é pra você!",
+  "main": ".prettierrc.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tiagolpadua/gitbook-treinamento-rn-092019.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tiagolpadua/gitbook-treinamento-rn-092019/issues"
+  },
+  "homepage": "https://github.com/tiagolpadua/gitbook-treinamento-rn-092019#readme",
+  "devDependencies": {
+    "eslint": "5.16.0"
+  }
+}
