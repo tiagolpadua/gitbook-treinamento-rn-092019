@@ -5,6 +5,7 @@
 - [Montando o Ambiente](02-ambiente.md)
 - [Introdução ao React Native](03-intro.md)
 - [Iniciando o Projeto](04-iniciando.md)
+- [Mais componentes](05-componentes.md)
 
 <!--
 - [Desenvolvendo uma versão mobile para Controle de Poneys](05-coponeymob.md)
