@@ -17,6 +17,7 @@ Espera-se que o aluno possua prévio conhecimento nos tópicos abaixo para que p
 ## Visão geral do treinamento
 
 - _React_: Uma biblioteca JavaScript para construir interfaces com o usuário;
+- _NativeBase_: Componentes _cross platform_ para ReactNative;
 - _React Navigation_: Roteamento e navegação para aplicativos React Native;
 - _Redux_: Contêiner de estado previsível para aplicativos JavaScript;
 - _Redux Thunk_: Permite que se escreva criadores de ações que retornam uma função ao invés de uma ação;

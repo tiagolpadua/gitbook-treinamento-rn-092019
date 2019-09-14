@@ -6,6 +6,8 @@
 - [Introdução ao React Native](03-intro.md)
 - [Iniciando o Projeto](04-iniciando.md)
 - [Mais componentes](05-componentes.md)
+- [Atualizando o estado do componente](06-estado.md)
+- [Uma lista de usuários](07-usuarios.md)
 
 <!--
 - [Desenvolvendo uma versão mobile para Controle de Poneys](05-coponeymob.md)
