@@ -154,13 +154,20 @@ Vamos deixar o texto do rodapé da imagem um pouco mais interessante informando 
           style={styles.imagemAnimal}
         />
         {this.botaoFavorito(animal, usuarioLogado)}
+
+        {/* Novidade aqui */}
         <Text>
           Este animal
           {animal.favoritoUsuarios.length > 0
-            ? ` já foi favoritado por ${animal.favoritoUsuarios.length} usuario(s)`
+            ? ` já foi favoritado por ${animal.favoritoUsuarios.length} usuário(s)`
             : ' ainda não foi favoritado'}
         </Text>
+
       </View>
     );
   }
 ```
+
+> Desafio 1: Será que podemos substituir `animal.favoritoUsuarios.length > 0` por `animal.favoritoUsuarios.length`? Qual o motivo?
+
+> Desafio 2: Você consegue escrever ajustar o código que sensibilize corretamente a exibição da palavra usuário em singular/plural? Ex: `Este animal já foi favoritado por 1 usuário` e `Este animal já foi favoritado por 2 usuários`.

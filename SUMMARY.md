@@ -8,6 +8,8 @@
 - [Mais componentes](05-componentes.md)
 - [Atualizando o estado do componente](06-estado.md)
 - [Uma lista de usuários](07-usuarios.md)
+- [Melhorando o Layout](08-layout.md)
+- [Um componente para favoritar](09-favoritar.md)
 
 <!--
 - [Desenvolvendo uma versão mobile para Controle de Poneys](05-coponeymob.md)
