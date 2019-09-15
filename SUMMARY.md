@@ -12,6 +12,7 @@
 - [Um componente para favoritar](09-favoritar.md)
 - [Centralizando o Estado](10-centralizando-estado.md)
 - [Redux](11-redux.md)
+- [Conectando às APIs](12-apis.md)
 
 <!--
 - [Desenvolvendo uma versão mobile para Controle de Poneys](05-coponeymob.md)
