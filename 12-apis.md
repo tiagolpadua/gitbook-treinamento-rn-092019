@@ -135,7 +135,7 @@ class ListaAnimais extends Component {
 const mapStateToProps = state => {
   return {
     animais: state.animais,
-    usuarioLogado: state.usuarioLogado,
+    usuarioLogado: s  tate.usuarioLogado,
   };
 };
 
@@ -148,3 +148,61 @@ export default connect(
   mapDispatchToProps,
 )(ListaAnimais);
 ```
+
+Mas se tentarmos executar nossa app vamos receber um erro:
+
+![](assets/erroaction.png)
+
+Ou seja, uma ação deve retornar um "objeto plano".
+
+## Redux Thunk
+
+Com uma store Redux básica e simples, você só pode fazer atualizações síncronas simples despachando uma ação. O middleware amplia as habilidades da store e permite escrever uma lógica assíncrona que interage com a store.
+
+Os thunks são o middleware recomendado para a lógica básica de efeitos colaterais do Redux, incluindo lógica síncrona complexa que precisa de acesso ao armazenamento e lógica assíncrona simples como solicitações AJAX. (https://github.com/reduxjs/redux-thunk)
+
+O middleware Redux Thunk permite escrever criadores de ação que retornam uma função em vez de uma ação. O thunk pode ser usado para atrasar o envio de uma ação ou para enviar somente se uma determinada condição for atendida. A função interna recebe os métodos de armazenamento expedidos e `getState` como parâmetros.
+
+O primeiro passo é instalá-lo:
+
+```bash
+> npm install --save redux-thunk
+```
+
+Agora, vamos ajustar nossa função em `configureStore` para utilizar o _redux-thunk_:
+
+- `configureStore.js`
+
+```jsx
+import {applyMiddleware, createStore} from 'redux';
+import thunk from 'redux-thunk';
+import rootReducer from './reducers';
+
+export default function configureStore() {
+  let store = createStore(rootReducer, applyMiddleware(thunk));
+  return store;
+}
+```
+
+Nossa action também deve ser ajustada para utilizar uma função `dispatch`:
+
+- `actions.js`
+
+```jsx
+export function carregarAnimais() {
+  return dispatch => {
+    carregarAnimaisAPI()
+      .then(res => {
+        dispatch({
+          type: CARREGAR_ANIMAIS,
+          data: res.data,
+        });
+      })
+      .catch(error => {
+        console.warn(error.message);
+      });
+  };
+}
+```
+
+Após a realização destes passos, nossa primeira chamada à API deve estar funcionando corretamente.

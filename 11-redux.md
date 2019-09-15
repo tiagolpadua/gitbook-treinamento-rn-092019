@@ -10,6 +10,8 @@ O Redux pode ser utilizado junto com o React ou com qualquer outra biblioteca de
 
 ## Conceitos centrais
 
+![](assets/redux-fluxograma.png)
+
 Imagine que o estado de um aplicativo é descrito como um objeto simples. Por exemplo, o estado de um aplicativo todo pode ter esta aparência:
 
 ```jsx
