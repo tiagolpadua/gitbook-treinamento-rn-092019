@@ -13,11 +13,5 @@
 - [Centralizando o Estado](10-centralizando-estado.md)
 - [Redux](11-redux.md)
 - [Conectando às APIs](12-apis.md)
-
-<!--
-- [Desenvolvendo uma versão mobile para Controle de Poneys](05-coponeymob.md)
-- [Criando a tela Home](06-home.md)
-- [Criando a tela de Cadastro de Poneys](07-cadastro.md)
-- [Criando a tela de Alteração de Poneys](08-alteracao.md)
-- [Exclusão lógica de Poneys](09-exclusao.md)
--->
+- [Login](13-login.md)
+- [Navegando entre telas](14-navegando.md)
