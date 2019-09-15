@@ -6,7 +6,7 @@ Agora que já estamos conseguindo nos conectar com a API do sistema, é hora de 
 
 Primeiro, vamos fazer toda a parte visual:
 
-- `src/screens/Login.js`
+- `src/components/Login.js`
 
 ```jsx
 import {Button, Form, Input, Item as FormItem, Label, Text} from 'native-base';
@@ -77,7 +77,7 @@ export default class App extends Component {
 
 Vamos agora capturar o input do usuário ajustando o estado do componente e associar uma fução à ação de login:
 
-- `src/screens/Login.js`
+- `src/components/Login.js`
 
 ```jsx
 class Login extends Component {
