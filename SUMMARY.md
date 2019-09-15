@@ -10,6 +10,8 @@
 - [Uma lista de usuários](07-usuarios.md)
 - [Melhorando o Layout](08-layout.md)
 - [Um componente para favoritar](09-favoritar.md)
+- [Centralizando o Estado](10-centralizando-estado.md)
+- [Redux](11-redux.md)
 
 <!--
 - [Desenvolvendo uma versão mobile para Controle de Poneys](05-coponeymob.md)
