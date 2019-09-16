@@ -6,9 +6,11 @@ Podemos inicializar e executar nosso projeto com muita facilidade utilizando o `
 > react-native init CoZooMob
 ```
 
+Inicie o Android Studio e execute uma instância do emulador.
+
 Abra a pasta do projeto no VS Code, em seguida ative o terminal: `Terminal -> New Termial`
 
-Divida o terminal em dois: Split Terminals
+Divida o terminal em dois: _Split Terminals_
 
 Em um terminal entre com o comando:
 
@@ -22,7 +24,7 @@ E no outro:
 > react-native run-android
 ```
 
-Obs.: O comando `react-native run-android` deve ser executado após o emulador do Android estar em execução.
+> Obs.: O comando `react-native run-android` deve ser executado após o emulador do Android estar em execução.
 
 A aplicação deverá ser executada no emulador conforme o print abaixo:
 
@@ -123,6 +125,8 @@ Um componente é uma classe simples, único método obrigatório de um component
 ## Melhorando a organização do código
 
 Uma boa prática é já focar desde o começo de nosso projeto em sua organização. Para isso vamos mover nosso componente para uma subpasta que criaremos `src/components/App.js`.
+
+Após a movimentação do arquivo, é necessário atualizar sua referência no arquivo `index.js`.
 
 ## Exibindo algo mais interessante
 
@@ -250,7 +254,6 @@ Mas ainda faltam acertar alguns pontos, pois é exibido um _warning_ referente a
 ```jsx
 return (
   <View>
-    {/* Novidade aqui! */}
     {animais.map(animal => (
       <View key={animal.nome}>
         <Text style={styles.nomeAnimal}>{animal.nome}</Text>

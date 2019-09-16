@@ -2,7 +2,7 @@
 
 Já temos um componente funcional em nossa tela, mas vamos componentizar ainda mais.
 
-Nosso primeiro passo é nomear corretamente o nosso componente inicial, daremos o nome de `ListaAnimais`, para isso, iremos renomear o arquivo `App.js` para `ListaAnimais.js` e a classe:
+Nosso primeiro passo é nomear corretamente o nosso componente inicial, daremos o nome de `ListaAnimais`, para isso, iremos renomear o arquivo `App.js` para `ListaAnimais.js` e a classe para `ListaAnimais`:
 
 - `ListaAnimais.js`
 
@@ -18,7 +18,7 @@ export default class ListaAnimais extends Component {
 AppRegistry.registerComponent(appName, () => ListaAnimais);
 ```
 
-Em seguida iremos decompor nosso componente, criando um componente específico para representar cada animal na listagem, criaremos o arquivo `Animal.js` dentro da pasta `components`:
+Em seguida iremos decompor nosso componente, criando um componente específico para representar cada animal na listagem. Criaremos o arquivo `Animal.js` dentro da pasta `components`:
 
 - `Animal.js`
 
@@ -101,7 +101,7 @@ A maioria dos componentes pode ser personalizada quando eles são criados, com d
 
 As _props_ permitem criar um único componente que é usado em muitos lugares diferentes do aplicativo, com propriedades ligeiramente diferentes em cada lugar. Basta se referir a `this.props` em sua função de renderização.
 
-- `ListaAnimais.js`
+- `Animal.js`
 
 ```jsx
 export default class Animal extends Component {
@@ -119,6 +119,22 @@ export default class Animal extends Component {
     );
   }
 }
+```
+
+Para que este código funcione, devemos passar a propriedade `animal` a partir do componente superior, neste caso `ListaAnimais`:
+
+- `ListaAnimais.js`
+
+```jsx
+return (
+  <View>
+    <FlatList
+      data={animais}
+      renderItem={({item}) => <Animal animal={animal} />}
+      keyExtractor={item => item.nome}
+    />
+  </View>
+);
 ```
 
 Mas perceba que estamos repetindo várias vezes o trecho `this.props`, para tornar nosso código menos verboso, podemos nos valer da sintaxe de desestruturação de objetos do ES6:
@@ -155,7 +171,7 @@ A instalação do _NativeBase_ está descrita em https://docs.nativebase.io/docs
 - Encerre a execução do script `react-native start` (`CTRL+C`) e em seguida:
 
 ```bash
-> npm install native-base --save
+> npm install native-base
 > react-native link
 ```
 

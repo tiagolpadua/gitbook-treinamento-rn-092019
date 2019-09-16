@@ -2,7 +2,7 @@
 
 Se analisarmos com mais profundidade nossa estrutura de dados veremos que há uma falha pois nosso sistema será multiusuário, e como podemos saber se foi o usuário atual que de fato favoritou a foto? Para corrigir isso, devemos transformar a propriedade "favoritado" em uma lista de nomes de usuários que favoritaram a foto.
 
-Esta alteração é bem impactante, a primeira alteração é ajustar nosso componente `ListaAnimais` para que os animais tenham uma nova propriedade e também haja o estado `usuarioLogado`:
+Esta alteração é bem impactante, a primeira alteração é ajustar nosso componente `ListaAnimais` para que os animais tenham uma nova propriedade e também haja o estado `usuarioLogado` que representa o usuário atualmente logado no sistema:
 
 - `ListaAnimais.js`
 
@@ -55,7 +55,7 @@ export default class ListaAnimais extends Component {
 }
 ```
 
-Agora ajustaremos o componente `Animal` para as novas `props`. A lógica de identificar se o usuário atual já favoritou ou não um animal está mais complicada, por isso será isolada em uma função `isFavoritado`. Também teremos dois métodos distintos, um fara `favoritar` e outro para `desfavoritar`:
+Agora ajustaremos o componente `Animal` para as novas `props`. A lógica de identificar se o usuário atual já favoritou ou não um animal está mais complicada, por isso será isolada em uma função `isFavoritado`. Também teremos dois métodos distintos, um irá `favoritar` e outro irá `desfavoritar`:
 
 - `Animal.js`
 
@@ -170,4 +170,10 @@ Vamos deixar o texto do rodapé da imagem um pouco mais interessante informando 
 
 > Desafio 1: Será que podemos substituir `animal.favoritoUsuarios.length > 0` por `animal.favoritoUsuarios.length`? Qual o motivo?
 
-> Desafio 2: Você consegue escrever ajustar o código que sensibilize corretamente a exibição da palavra usuário em singular/plural? Ex: `Este animal já foi favoritado por 1 usuário` e `Este animal já foi favoritado por 2 usuários`.
+> Desafio 2: Você consegue ajustar o código que sensibilize corretamente a exibição da palavra usuário em singular/plural? Ex: `Este animal já foi favoritado por 1 usuário` e `Este animal já foi favoritado por 2 usuários`.
+
+<!--
+{animal.favoritoUsuarios.length > 0
+  ? ` já foi favoritado por ${animal.favoritoUsuarios.length} usuário${animal.favoritoUsuarios.length > 1 && 's'}`
+  : ' ainda não foi favoritado'}
+-->

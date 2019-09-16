@@ -1,6 +1,6 @@
 # Um componente para favoritar
 
-Uma das principais características do React é o foco na componentização. Até o momento, nossa aplicação possui apenas dois componentes, e o componente `Animal` possui uma lógica muito grande relacionada a funcionalidade de favoritar. Vamos melhorar isso, criando um componente exclusivo para o Botão Favoritar:
+Uma das principais características do React é o foco na componentização. Até o momento, nossa aplicação possui apenas dois componentes, e o componente `Animal` possui uma lógica muito grande relacionada a funcionalidade de favoritar. Vamos melhorar isso, criando um componente exclusivo para o Botão Favoritar, que receberá toda esta lógica:
 
 - `src\components\BotaoFavoritar.js`
 
@@ -247,3 +247,5 @@ export default class BotaoFavoritar extends Component {
   }
 }
 ```
+
+Nossa aplicação deve estar funcionando normalmente, transformamos com sucesso o `BotaoFavoritar` em um Presentational Component e o `Animal` em um Container Component.

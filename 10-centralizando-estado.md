@@ -1,8 +1,8 @@
 # Centralizando o Estado
 
-Podemos melhorar ainda mais deixando também o componente `Animal` sem um estado próprio, e mantendo o componente `ListaAnimais` como nossa único Container Component e única fonte da verdade.
+Podemos melhorar ainda mais a aplicação deixando também o componente `Animal` sem um estado próprio, e mantendo o componente `ListaAnimais` como nosso único Container Component e única fonte da verdade.
 
-Primeiramente vamos adicionar uma nova propriedade aos nossos dados, um `_id` para cada animal:
+Primeiramente vamos adicionar uma nova propriedade aos nossos dados, um `_id` para cada animal, essa propriedade facilitará a identificação de cada um dos animais:
 
 - `data.json`
 
@@ -32,7 +32,7 @@ Primeiramente vamos adicionar uma nova propriedade aos nossos dados, um `_id` pa
 }
 ```
 
-Agora vamos ajustar o componente `Animal` para ser um _Presentational Component_:
+Agora vamos ajustar o componente `Animal` para ser um _Presentational Component_, a principal alteração é que ele agora irá receber as funções `favoritarCallback` e `desfavoritarCallback` como parâmetros e deverá repassá-las ao componente `BotaoFavoritar`:
 
 - `Animal.js`
 
@@ -86,7 +86,7 @@ export default class Animal extends Component {
 }
 ```
 
-Toda a lógica e estado agora ficará concentrada no componente `ListaAnimais`:
+Toda a lógica e estado agora ficará concentrada no componente `ListaAnimais` que deverá repassar referências das funções aos componentes inferiores:
 
 - `ListaAnimais.js`
 
@@ -203,3 +203,7 @@ export default class ListaAnimais extends Component {
     this.setState({animais: novosAnimais});
   };
 -->
+
+Com isso conseguimos transformar `ListaAnimais` em nosso único Container Component, e os demais componentes são Presentational Components.
+
+Esta estratégia funciona para aplicações não muito complexas, mas se você parar para analisar, caso haja um número grande de componentes e funcionalidades, há uma tendência do nosso Container Component ficar muito grande e ter que passar um número elevado de funções para os componentes filhos, além do quê, qualquer mudança na hieranquia da árvore de componentes necessitará de ajustes nas funções que são transitadas.

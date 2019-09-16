@@ -1,14 +1,11 @@
 # Montando o Ambiente
 
-Para começarmos nosso desenvolvimento, necessitaremos das seguintes ferramentas:
-
-Ferramentas instaladas no computador:
+Para começarmos nosso desenvolvimento, necessitaremos das seguintes ferramentas instaladas no computador:
 
 - Android Studio: https://developer.android.com/studio/
 - Java JDK: https://www.oracle.com/java/technologies/jdk8-downloads.html
 - NodeJS (8.3+) e NPM: https://nodejs.org/en/download/
 - React Native CLI: `npm install -g react-native-cli`
-- Reactotron: https://github.com/infinitered/reactotron/releases
 - VSCode - https://code.visualstudio.com/
 
 São recomendados os seguintes plugins para o VSCode:
@@ -18,7 +15,7 @@ São recomendados os seguintes plugins para o VSCode:
 - Prettier;
 - vscode-icons;
 
-Algumas variáveis de ambiente devem ser configuradas nos arquivos `$HOME/.bash_profile` ou `$HOME/.bashrc`:
+Algumas variáveis de ambiente devem ser configuradas nos arquivos `$HOME/.bash_profile` ou `$HOME/.bashrc` no caso do Linux ou via Variáveis de Ambiente do Windows:
 
 ```bash
 export ANDROID_HOME=$HOME/Android/Sdk

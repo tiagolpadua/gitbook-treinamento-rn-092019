@@ -396,3 +396,27 @@ export default class App extends Component {
   }
 }
 ```
+
+## Restringindo o "Voltar"
+
+Talvez você não tenha percebido, mas após o usuário navegar para a tela de listagem, se ele pressionar o botão "voltar" do dispositivo ele retornará para a tela de login, isso não faz muito sentido, vamos corrigir este comportamento emitindo uma comando especial para a navegação:
+
+- `Login.js`
+
+```jsx
+login = () => {
+  this.props
+    .login(this.state.usuario, this.state.senha)
+    .then(() => {
+      // Novidade aqui
+      const resetAction = StackActions.reset({
+        index: 0,
+        actions: [NavigationActions.navigate({routeName: 'ListaAnimais'})],
+      });
+      this.props.navigation.dispatch(resetAction);
+    })
+    .catch(() =>
+      Alerta.mensagem('Verifique o usuário e senha e tente novamente.'),
+    );
+};
+```

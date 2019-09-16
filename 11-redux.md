@@ -1,12 +1,12 @@
 # Redux
 
-Quando uma aplicação torna-se muito completa, o gerenciamento de estado pode se tornar algo extremamente problemático, é para resolver este problema que foi criada uma biblioteca chamada Redux.
+Quando uma aplicação torna-se muito complexa, o gerenciamento de estado pode se tornar algo extremamente problemático utilizando-se estratégias convencionais, é para resolver este problema que foi criada uma biblioteca chamada Redux.
 
 O Redux é um contêiner de estado previsível para aplicativos JavaScript.
 
 Ele ajuda escrever aplicativos que se comportam de maneira consistente, executados em diferentes ambientes (cliente, servidor e nativo) e são fáceis de testar. Além disso, proporciona uma ótima experiência de desenvolvedor, como edição de código ao vivo combinada com um depurador de viagem no tempo.
 
-O Redux pode ser utilizado junto com o React ou com qualquer outra biblioteca de visualizações. E é uma biblioteca pequena (2kB, incluindo dependências).
+O Redux pode ser utilizado junto com o React ou com qualquer outra biblioteca de view. E é uma biblioteca pequena (2kB, incluindo dependências).
 
 ## Conceitos centrais
 
@@ -27,7 +27,7 @@ Imagine que o estado de um aplicativo é descrito como um objeto simples. Por ex
 }
 ```
 
-Este objeto é como um "modelo", exceto que não há "setters". Isso acontece para que diferentes partes do código não alterem o estado arbitrariamente, causando bugs difíceis de reproduzir.
+Este objeto é como um "modelo", exceto que não há "setters". Isso acontece para que diferentes partes do código não alterem o estado arbitrariamente, causando bugs difíceis de reproduzir e corrigir.
 
 Para mudar algo no estado, você precisa despachar uma ação. Uma ação é um objeto JavaScript simples que descreve o que aconteceu. Aqui estão algumas ações de exemplo:
 
@@ -37,7 +37,7 @@ Para mudar algo no estado, você precisa despachar uma ação. Uma ação é um 
 { type: 'SET_VISIBILITY_FILTER', filter: 'SHOW_ALL' }
 ```
 
-Obrigando que todas as alterações são descritas como uma ação nos permite ter uma compreensão clara do que está acontecendo no aplicativo. Se algo mudou, sabemos porque mudou. Ações são como rastros do que aconteceu. Finalmente, para amarrar estados e ações juntos, escrevemos uma função chamada "reducer". Novamente, nada de mágico - é apenas uma função que toma o estado e a ação como argumentos e retorna o próximo estado do aplicativo. Seria difícil escrever uma função desse tipo para um aplicativo grande, por isso escrevemos funções menores gerenciando partes do estado:
+Obrigando que todas as alterações sejam descritas como uma ação nos permite ter uma compreensão clara do que está acontecendo no aplicativo. Se algo mudou, sabemos porque mudou. Ações são como rastros do que aconteceu. Finalmente, para amarrar estados e ações juntos, escrevemos uma função chamada "reducer". É apenas uma função que toma o estado e a ação como argumentos e retorna o próximo estado do aplicativo. Seria difícil escrever uma função desse tipo para um aplicativo grande, por isso escrevemos funções menores gerenciando partes do estado:
 
 ```jsx
 function visibilityFilter(state = 'SHOW_ALL', action) {
@@ -76,7 +76,7 @@ function todoApp(state = {}, action) {
 }
 ```
 
-Esta é basicamente a ideia do Redux. Observe que não usamos nenhuma API do Redux. Ele vem com alguns utilitários para facilitar esse padrão, mas a idéia principal é que se descreva como o estado é atualizado ao longo do tempo em resposta a objetos de ação, e 90% do código que você escreve é ​​simplesmente JavaScript, sem uso do Redux em si, suas APIs ou qualquer "mágica".
+Esta é basicamente a ideia do Redux. Observe que não usamos nenhuma API do Redux. Ele vem com alguns utilitários para facilitar esse padrão, mas a ideia principal é que se descreva como o estado é atualizado ao longo do tempo em resposta a objetos de ação, e 90% do código que você escreve é ​​simplesmente JavaScript, sem uso do Redux em si, suas APIs ou qualquer "mágica".
 
 ## Os três princípios
 

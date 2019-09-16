@@ -1,10 +1,12 @@
 # Atualizando o estado do componente
 
+Para que um animal seja favoritado, o "estado" deverá ser atualizado (valor das variáveis).
+
 Existem dois tipos de dados que controlam um componente: _props_ e _state_. _props_ são definidas pelo componente pai e são fixas durante todo o tempo de vida de um componente. Para os dados que vão mudar, temos que usar o _state_.
 
 Em geral, você deve inicializar o estado, e chamar `setState` quando quiser alterá-lo.
 
-Vamos fazer um simples contador de cliques em nossa aplicação:
+Para começar vamos fazer um simples contador de cliques em nossa aplicação:
 
 - `Animal.js`
 
@@ -270,7 +272,7 @@ O método `bind()` cria uma nova função que, quando chamada, tem sua palavra-c
   }
 ```
 
-Esta solução não é muito boa, pois há um overhead de performance, você consegue visualizar o motivo? A cada chamada do método `render` uma nova função é criada, pressionando o motor JavaScript.
+Esta solução não é recomendada, pois há um overhead de performance, você consegue visualizar o motivo? A cada chamada do método `render` uma nova função é criada, pressionando o motor JavaScript.
 
 Para resolver isso, podemos realizar o `bind` uma única vez no construtor do componente:
 
@@ -439,7 +441,7 @@ export default class Animal extends Component {
 }
 ```
 
-Todas as formas apresentadas são válidas, enquanto que a única de fato não recomendada é realizar o `bind` na função render devido ao custo computacional mais elevado.
+Todas as formas apresentadas são válidas, porém a única de fato não recomendada é realizar o `bind` na função render devido ao custo computacional mais elevado.
 
 Durante o treinamento daremos preferência a última forma por simplicidade.
 
@@ -519,3 +521,5 @@ export default class Animal extends Component {
 Você deve ter notado que optamos por passar o objeto `animal` como um parâmetro para a função, isso foi feito para que a função dependa menos do estado do componente e será importante quando fizermos mais refatorações.
 
 > Desafio: Não utilizamos a notação de `arrow function` na declaração do método `botaoFavorito` nem no seu acionamento e há uma referência a `this`, porquê não ocorre um erro?
+
+<!-- Pois a função é acionada no momento da renderização -->
