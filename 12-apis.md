@@ -1,12 +1,14 @@
 # Conectando às APIs
 
-Chegou a hora de começarmos a consumir as APIs de backend. Já temos um servidor levantado com as seguintes funcionalidades:
+Chegou a hora de deixarmos de utilizar dados fixos começarmos a consumir as APIs de backend. Já temos um servidor levantado com as seguintes funcionalidades:
 
-- Listar Animais - GET - https://cozooapi.herokuapp.com/v1/animais
-- Cadastrar Animal - POST - https://cozooapi.herokuapp.com/v1/animais
-- Detalhar Animal - GET - https://cozooapi.herokuapp.com/v1/animais/{id}
-- Atualizar Animal - PUT - https://cozooapi.herokuapp.com/v1/animais/{id}
-- Excluir Animal - DELETE - https://cozooapi.herokuapp.com/v1/animais/{id}
+| Funcionalidade   | Método HTTP | URL                                            |
+| ---------------- | ----------- | ---------------------------------------------- |
+| Listar Animais   | `GET`       | https://cozooapi.herokuapp.com/v1/animais      |
+| Cadastrar Animal | `POST`      | https://cozooapi.herokuapp.com/v1/animais      |
+| Detalhar Animal  | `GET`       | https://cozooapi.herokuapp.com/v1/animais/{id} |
+| Atualizar Animal | `PUT`       | https://cozooapi.herokuapp.com/v1/animais/{id} |
+| Excluir Animal   | `DELETE`    | https://cozooapi.herokuapp.com/v1/animais/{id} |
 
 Caso queira dar uma olhada no código fonte deste serviço, ele pode ser acessado em https://github.com/tiagolpadua/cozooapi.
 
@@ -44,7 +46,7 @@ export function atualizarAnimal(animal) {
 }
 ```
 
-Devemos também ajustar o arquivo de constantes para incluir a nova constante `CARREGAR_ANIMAIS`:
+Devemos também ajustar o arquivo de constantes para incluir a nova constante que representará a ação `CARREGAR_ANIMAIS`:
 
 - `src/constants.js`
 
@@ -155,6 +157,18 @@ Mas se tentarmos executar nossa app vamos receber um erro:
 
 Ou seja, uma ação deve retornar um "objeto plano".
 
+## Ciclo de vida do React
+
+Antes de corrigirmos este problema, é interessante entender um pouco do ciclo de vida do React.
+
+Existem várias funções fornecidas pelo React Native para instanciar, montar, renderizar e, eventualmente, atualizar, desmontar e destruir componentes. Essa API nos ajuda a inicializar, atualizar os dados da maneira correta.
+
+### A API do ciclo de vida do componente
+
+No React Native, a Api contém três fases principais: fase de montagem, fase de atualização e fase de desmonte:
+
+![](assets/reactlifecycle.jpeg)
+
 ## Redux Thunk
 
 Com uma store Redux básica e simples, você só pode fazer atualizações síncronas simples despachando uma ação. O middleware amplia as habilidades da store e permite escrever uma lógica assíncrona que interage com a store.
@@ -166,7 +180,7 @@ O middleware Redux Thunk permite escrever criadores de ação que retornam uma f
 O primeiro passo é instalá-lo:
 
 ```bash
-> npm install --save redux-thunk
+> npm install redux-thunk
 ```
 
 Agora, vamos ajustar nossa função em `configureStore` para utilizar o _redux-thunk_:

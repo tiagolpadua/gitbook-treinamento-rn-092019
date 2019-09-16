@@ -82,7 +82,7 @@ Esta é basicamente a ideia do Redux. Observe que não usamos nenhuma API do Red
 
 ### Única fonte de verdade
 
-"O estado de todo o aplicativo é armazenado em uma árvore de objetos em um único local de armazenamento."
+> "O estado de todo o aplicativo é armazenado em uma árvore de objetos em um único local de armazenamento."
 
 Isso facilita a criação de aplicativos universais, já que o estado do servidor pode ser serializado e implantado no cliente sem nenhum esforço extra de codificação. Uma única árvore de estado também facilita a depuração ou inspeção de um aplicativo; Ele também permite que você persista o estado do seu aplicativo em desenvolvimento, para um ciclo de desenvolvimento mais rápido. Algumas funcionalidades que têm sido tradicionalmente difíceis de implementar - Desfazer/Refazer, por exemplo - podem subitamente tornar-se triviais de implementar, se todo o seu estado estiver armazenado em uma única árvore.
 
@@ -104,9 +104,9 @@ Isso facilita a criação de aplicativos universais, já que o estado do servido
 
 ### Estado é somente leitura
 
-"A única maneira de mudar o estado é emitir uma ação, um objeto descrevendo o que aconteceu."
+> "A única maneira de mudar o estado é emitir uma ação, um objeto descrevendo o que aconteceu."
 
-Isso garante que nem as exibições nem os callbacks da rede jamais serão gravados diretamente no estado. Em vez disso, eles expressam a intenção de transformar o estado. Como todas as mudanças são centralizadas e acontecem uma a uma em uma ordem estrita, não há condições corrida a serem observadas. Como as ações são apenas objetos simples, elas podem ser registradas, serializadas, armazenadas e, posteriormente, reproduzidas para fins de depuração ou teste.
+Isso garante que nem as views nem os callbacks da rede jamais serão gravados diretamente no estado. Em vez disso, eles expressam a intenção de transformar o estado. Como todas as mudanças são centralizadas e acontecem uma a uma em uma ordem estrita, não há condições corrida a serem observadas. Como as ações são apenas objetos simples, elas podem ser registradas, serializadas, armazenadas e, posteriormente, reproduzidas para fins de depuração ou teste.
 
 ```jsx
 store.dispatch({
@@ -122,7 +122,7 @@ store.dispatch({
 
 ### As alterações são feitas com funções puras
 
-"Para especificar como a árvore de estados é transformada por ações, você escreve redutores puros."
+> "Para especificar como a árvore de estados é transformada por ações, você escreve redutores puros."
 
 Redutores são apenas funções puras que tomam o estado anterior e uma ação, e retornam o próximo estado. Lembre-se de retornar novos objetos de estado, em vez de alterar o estado anterior. Você pode começar com um único redutor e, à medida que seu aplicativo cresce, divida-o em redutores menores que gerenciam partes específicas da árvore de estados. Como os redutores são apenas funções, você pode controlar a ordem na qual eles são chamados, passar dados adicionais ou até mesmo fazer reduções reutilizáveis ​​para tarefas comuns, como paginação.
 
@@ -170,10 +170,12 @@ const store = createStore(reducer)
 Para iniciarmos com a utilização do Redux, primeiro, precisamos instalar as bibliotecas necessárias:
 
 ```bash
-> npm install --save redux react-redux
+> npm install redux react-redux
 ```
 
-Agora vamos criar nossos primeiros _reducers_:
+Agora vamos criar nossos primeiros _reducers_.
+
+Um reducer irá controlar a listagem de animais:
 
 - `src\reducers\animais.js`
 
@@ -189,6 +191,8 @@ export default function animaisReducer(state = initialState, action) {
   }
 }
 ```
+
+O outro reducer irá controlar o usuário logado:
 
 - `src\reducers\usuarioLogado.js`
 
@@ -222,7 +226,9 @@ const rootReducer = combineReducers({
 export default rootReducer;
 ```
 
-Em seguira, criaremos um arquivo JavaScript que tem a função criar uma _store_ a partir dos _reducers_:
+Em seguira, criaremos um arquivo JavaScript que tem a função criar uma _store_ a partir dos _reducers_.
+
+A store contém a árvore de estados completa do seu aplicativo. Só deve haver uma única loja no seu aplicativo.
 
 - `src\configureStore.js`
 
@@ -236,7 +242,7 @@ export default function configureStore() {
 }
 ```
 
-Um passo adicional que faremos é a divisão do componente `ListaAnimais` em dois, teremos um componente de ordem superior que será responsável pelas configurações gerais da aplicação, esta divisão será útil quando começarmos a realizar navegações em nossa aplicação.
+Um passo adicional que faremos é a divisão do componente `ListaAnimais` em dois, teremos um componente de ordem superior que será responsável pelas configurações gerais da aplicação, esta divisão será útil mais a frente quando começarmos a realizar navegações em nossa aplicação.
 
 - `src\App.js`
 
@@ -277,7 +283,7 @@ const styles = StyleSheet.create({
 });
 ```
 
-O último passo é a atualização de `ListaAnimais` para que utilize o Redux:
+O último passo é a atualização de `ListaAnimais` para que utilize o Redux. Primeiramente mapearemos os estados através da função `mapStateToProps`, que mapeará um estado do Redux para uma prop homônima do componente. Sempre que o estado do Redux for atualizado, a prop também será e o componente terá sua view atualizada:
 
 - `ListaAnimais`
 
@@ -557,3 +563,5 @@ const styles = StyleSheet.create({
   },
 });
 ```
+
+Nossa aplicação voltou a funcionar e já está com todo o estado gerenciado pelo Redux, o que a tornará mais facilmente escalável.
