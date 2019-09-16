@@ -2,7 +2,7 @@
 
 Para efetuar a navegação utilizaremos a biblioteca _React Navigation_.
 
-O React Navigation nasceu da necessidade da comunidade React Native de uma solução de navegação extensível e fácil de usar, escrita inteiramente em JavaScript (para que você possa ler e entender toda o fonte), além de poderosas primitivas nativas. (https://reactnavigation.org/docs/en/getting-started.html)
+O React Navigation nasceu da necessidade da comunidade React Native de uma solução de navegação extensível e fácil de usar, escrita inteiramente em JavaScript (para que você possa ler e entender toda o fonte), com poderosas primitivas nativas. (https://reactnavigation.org/docs/en/getting-started.html)
 
 Para começar a utilizá-la, devemos primeiramente instalar as dependências necessárias:
 
@@ -154,7 +154,7 @@ const AppNavigator = createStackNavigator(
 );
 ```
 
-O próximo passo é ajustar a action de login;
+O próximo passo é ajustar a action de login:
 
 - `actions.js`
 
@@ -329,7 +329,7 @@ export function login(usuario, senha) {
 }
 ```
 
-Criaremos agora nosso componente Carregando que exibirá um spinner indicando que uma operação demorada está ocorrendo:
+Criaremos agora nosso componente `Carregando` que exibirá um spinner indicando que uma operação demorada está ocorrendo:
 
 - `src/components/Carregando.js`
 
@@ -420,3 +420,5 @@ login = () => {
     );
 };
 ```
+
+Nossa aplicação já possui uma ótima estrutura básica e está pronta para a inclusão de novas funcionalidades!

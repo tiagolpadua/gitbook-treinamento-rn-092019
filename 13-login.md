@@ -4,7 +4,7 @@ Agora que já estamos conseguindo nos conectar com a API do sistema, é hora de 
 
 ## Login.js
 
-Primeiro, vamos fazer toda a parte visual:
+Primeiro, vamos fazer toda a parte visual utilizando diversos componentes do Native Base:
 
 - `src/components/Login.js`
 

@@ -169,9 +169,11 @@ No React Native, a Api contém três fases principais: fase de montagem, fase de
 
 ![](assets/reactlifecycle.jpeg)
 
+Agora vamos voltar ao nosso problema principal!
+
 ## Redux Thunk
 
-Com uma store Redux básica e simples, você só pode fazer atualizações síncronas simples despachando uma ação. O middleware amplia as habilidades da store e permite escrever uma lógica assíncrona que interage com a store.
+Com uma store Redux básica e simples, você só pode fazer atualizações síncronas simples despachando uma ação. O middleware Redux Thunk amplia as habilidades da store e permite escrever uma lógica assíncrona que interage com a store.
 
 Os thunks são o middleware recomendado para a lógica básica de efeitos colaterais do Redux, incluindo lógica síncrona complexa que precisa de acesso ao armazenamento e lógica assíncrona simples como solicitações AJAX. (https://github.com/reduxjs/redux-thunk)
 
@@ -219,4 +221,4 @@ export function carregarAnimais() {
 }
 ```
 
-Após a realização destes passos, nossa primeira chamada à API deve estar funcionando corretamente.
+Após a realização destes passos, nossa primeira chamada à API deve estar funcionando corretamente e os animais devem estar sendo listados na aplicação.
