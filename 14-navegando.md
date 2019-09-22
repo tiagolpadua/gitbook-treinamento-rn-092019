@@ -2,7 +2,7 @@
 
 Para efetuar a navegação utilizaremos a biblioteca _React Navigation_.
 
-O React Navigation nasceu da necessidade da comunidade React Native de uma solução de navegação extensível e fácil de usar, escrita inteiramente em JavaScript (para que você possa ler e entender toda o fonte), com poderosas primitivas nativas. (https://reactnavigation.org/docs/en/getting-started.html)
+O React Navigation nasceu da necessidade da comunidade React Native de uma solução de navegação extensível e fácil de usar, escrita inteiramente em JavaScript (para que você possa ler e entender toda o fonte), com poderosas primitivas nativas. [https://reactnavigation.org/docs/en/getting-started.html](https://reactnavigation.org/docs/en/getting-started.html)
 
 Para começar a utilizá-la, devemos primeiramente instalar as dependências necessárias:
 
