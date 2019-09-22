@@ -15,3 +15,4 @@
 - [Conectando às APIs](12-apis.md)
 - [Login](13-login.md)
 - [Navegando entre telas](14-navegando.md)
+- [Cadastramento de Animais](15-cadastrando.md)
