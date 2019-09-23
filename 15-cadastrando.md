@@ -172,6 +172,12 @@ Para utilizar a biblioteca devemos seguir alguns passos:
 > npm install validator
 ```
 
+> Como fizemos um downgrade, é interessante no próximo start de nossa aplicação, limpar o cache:
+
+```bash
+> react-native start --reset-cache
+```
+
 Agora chegou o momento de integrar o `redux-form` em nosso projeto.
 
 Uma das exigências da biblioteca é que devemos separar a nossa tela entre o componente de tela e o formulário em si. Esta separação pode ser útil para que possamos por exemplo reutilizar o mesmo formulário numa funcionalidade de atualização do animal.
