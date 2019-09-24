@@ -17,3 +17,4 @@
 - [Navegando entre telas](14-navegando.md)
 - [Cadastramento de Animais](15-cadastrando.md)
 - [Alterando Animais](16-alterando.md)
+- [Excluindo Animais](17-excluindo.md)
