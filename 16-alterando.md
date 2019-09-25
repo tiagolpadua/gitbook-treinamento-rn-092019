@@ -1,6 +1,6 @@
 # Alterando Animais
 
-Muito da estrutura para realizar a alteração de um animal já está pronta pois reutilizaremos o formulário de cadastramento de animais. Mas haverão algumas alterações funcamentais, por exemplo, o componente `AlterarAnimal` deve receber por parâmetro da navegação o animal a ser alterado:
+Muito da estrutura para realizar a alteração de um animal já está pronta pois reutilizaremos o formulário de cadastramento de animais. Mas haverão algumas alterações fundamentais, por exemplo, o componente `AlterarAnimal` deve receber por parâmetro da navegação o animal a ser alterado:
 
 - `AlterarAnimal.js`
 

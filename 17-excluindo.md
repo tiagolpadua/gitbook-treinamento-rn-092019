@@ -2,7 +2,7 @@
 
 Esta é a última funcionalidade de nosso CRUD.
 
-Para começar a implementá-la, devemos primeiro adicionar um botão em tela que permita realizar a funcionalidade:
+Para começar a implementá-la, devemos primeiro adicionar um botão em tela que permita acionar a funcionalidade:
 
 - `Animal.js`
 

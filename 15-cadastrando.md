@@ -158,7 +158,7 @@ O Redux Form irá oferecer uma forma padronizada de se trabalhar com formulário
 
 Para utilizar a biblioteca devemos seguir alguns passos:
 
-- Devido a uma incompatibilidade da versão mais recente do `react-redux` com o `redux-forms`, é necessário fazer o downgrade do `react-redux` para a versão 7.0.0 [https://github.com/erikras/redux-form/issues/4509](https://github.com/erikras/redux-form/issues/4509), para isso, apague a pasta `node_modules` e altere a versão do `react-redux` para 7.0.0, em seguida faça novamente o `npm install`;
+> Devido a uma incompatibilidade da versão mais recente do `react-redux` com o `redux-forms`, é necessário fazer o downgrade do `react-redux` para a versão 7.0.0 [https://github.com/erikras/redux-form/issues/4509](https://github.com/erikras/redux-form/issues/4509), para isso, apague a pasta `node_modules` e altere a versão do `react-redux` para 7.0.0, em seguida faça novamente o `npm install`;
 
 - Instalar a biblioteca `redux-form`:
 

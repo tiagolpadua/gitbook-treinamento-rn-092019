@@ -29,20 +29,28 @@ const api = axios.create({
   baseURL: 'https://cozooapi.herokuapp.com/v1/',
 });
 
-export function listaAnimais() {
+export function carregarAnimaisAPI() {
   return api.get('/animais');
 }
 
-export function excluirAnimal(id) {
-  return api.delete(`/animais/${id}`);
+export function detalharAnimalAPI(id) {
+  return api.get(`/animais/${id}`);
 }
 
-export function incluirAnimal(animal) {
+export function excluirAnimalAPI(animal) {
+  return api.delete(`/animais/${animal._id}`);
+}
+
+export function incluirAnimalAPI(animal) {
   return api.post('/animais', animal);
 }
 
-export function atualizarAnimal(animal) {
+export function alterarAnimalAPI(animal) {
   return api.put(`/animais/${animal._id}`, animal);
+}
+
+export function loginAPI(usuario, senha) {
+  return api.post('/login', {usuario, senha});
 }
 ```
 
